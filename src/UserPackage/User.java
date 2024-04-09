@@ -84,22 +84,21 @@ public class User {
         return password;
     }
     public void setUsername(String setUsername){
-        username = setUsername;
+        if ( setUsername == "nigga") {
+            System.out.println("don't be Racist");
+            System.out.println("Choose Something else");
+        }
+      else  username = setUsername;
     }
     public void setPassword(String setPassword){
       if ( Utils.isPasswordValid(setPassword)) {password = setPassword;}
     }
     public String setFirstName(String firstName) {
-        // Capitalize the first letter and convert the rest to lowercase
         return (firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase());
     }
 
     public String setLastName(String lastName) {
-        // Capitalize the first letter and convert the rest to lowercase
         return (lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase());
     }
-
-
-
     }
 
