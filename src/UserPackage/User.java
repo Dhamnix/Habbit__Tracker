@@ -1,9 +1,12 @@
 package UserPackage;
 
-import UtilityPackage.Utils;
-import TaskPackage.Task;
 
+import TaskPackage.Task;
+import UtilityPackage.Utils;
 import java.util.Scanner ;
+
+import static UtilityPackage.Utils.isEmailValid;
+
 public class User {
     private String username;
     private String password;
@@ -20,7 +23,9 @@ public class User {
         else System.out.println("Pls Enter Stronger Password");
         this.first_name = setFirstName(first_name);
         this.last_name = setLastName(last_name);
-        this.email = email;
+        if (!isEmailValid(email)) System.out.println("Email is Not Valid");
+        else { this.email = email;
+        }
     }
 
     public Task createTask(String nametask){
@@ -93,4 +98,8 @@ public class User {
         // Capitalize the first letter and convert the rest to lowercase
         return (lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase());
     }
-}
+
+
+
+    }
+

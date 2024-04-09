@@ -58,7 +58,7 @@ public class Main {
         scan.close();
     }
 
-    public static void printUserInfo(User user){
+    public static void printUserInfo(User user) {
         System.out.println("Username: " + user.getUsername() + "\nFull name: " + user.getFullName()
                 + "\nPassword: " + user.getPassword() + "\nEmail: " + user.email + "\nYou have been using the app for " + user.streak + " days.");
     }
