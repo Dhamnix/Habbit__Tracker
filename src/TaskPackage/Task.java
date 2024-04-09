@@ -1,10 +1,9 @@
 package TaskPackage;
 
 import UserPackage.User;
-
+import java.util.Arrays;
 public class Task {
     public String name;
-
     private final String Color ;
     private double start_time = 0 ;
     private double finish_time = 0 ;
@@ -19,7 +18,7 @@ public class Task {
         this.Color = "FFFFFF";
     }
     public Task (String name, User user , String color){
-        this.name = name ;
+        this.name = setName(name);
         this.user = user ;
         this.Color = color ;
     }
@@ -38,11 +37,22 @@ public class Task {
         if (ftime < 0) ftime = ftime * -1 ;
         finish_time = ftime ;
     }
+    public String setName(String TaskName){
+        if (TaskName.length()<10) return TaskName;
+        else {
+            System.out.println("too Long");
+            return null ;
+        }
+    }
     public static boolean isColorValid(String color){
      String valid = "0123456789ABCDEF";
      for (char c : color.toCharArray()){
      if (valid.indexOf(c)== -1){return false;}
      }
      return true ;
+    }
+
+    public String getColor() {
+        return Color;
     }
 }
