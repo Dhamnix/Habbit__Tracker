@@ -19,7 +19,8 @@ public class Application {
      else return null;
     }
 
-    public void addUser(User u){
+    public void addUser(String name , String pass){
+        User u = new User(name,pass);
         users[howMuch]=u;
         howMuch++;
     }

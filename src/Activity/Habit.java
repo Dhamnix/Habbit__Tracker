@@ -1,6 +1,8 @@
 package Activity;
 
 public class Habit extends ToDo{
+
+
     private int frequency;
     private String category;
     public String getInfo(){

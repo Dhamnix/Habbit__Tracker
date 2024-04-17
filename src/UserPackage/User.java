@@ -29,7 +29,10 @@ public class User {
         else { this.email = email;
         }
     }
-
+    public User(String username , String password){
+        this.username = username;
+        if (Utils.isPasswordValid(password)) {this.password = password;}
+    }
     public ToDo createToDo(String nametask){
         if(!isToDoRepetitive(nametask)){
         ToDo toDo = new ToDo();
