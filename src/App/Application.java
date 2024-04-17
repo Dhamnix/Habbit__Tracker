@@ -9,7 +9,7 @@ public class Application {
     public User[] getUserByName(String name){
         User[] u = new User[5];
         for (int i =0 ; i!= users.length ; i++){
-          String nam =  users[i].first_name+users[i].last_name ;
+          String nam =  users[i].getFirst_name()+users[i].getLast_name() ;
             if (name == nam) {
                 u[j] = users[i];
                 j++;

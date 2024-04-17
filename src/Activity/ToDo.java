@@ -24,5 +24,8 @@ public class ToDo {
         }
         return true ;
     }
+    public String getColor(){
+        return color;
+    }
 
 }

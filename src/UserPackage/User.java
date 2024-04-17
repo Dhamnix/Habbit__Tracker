@@ -2,6 +2,7 @@ package UserPackage;
 
 
 import Activity.Task;
+import Activity.ToDo;
 import UtilityPackage.Utils;
 import java.util.Scanner ;
 
@@ -10,12 +11,13 @@ import static UtilityPackage.Utils.isEmailValid;
 public class User {
     private String username;
     private String password;
-    public String first_name;
-    public String last_name;
-    public String email;
-    public int  streak = 0 ;
-    public static int counter = 0 ;
-    public static  Task[] Tasks = new Task[100] ;
+    private int  streak = 0 ;
+    private static ToDo[] tasks = new ToDo[200];
+    private int taskCount = 0;
+   // public static  Task[] Tasks = new Task[100] ;
+    private String first_name;
+    private String last_name;
+    private String email;
 
     public User(String username , String password, String first_name , String last_name , String email){
         this.username = username;
@@ -28,41 +30,36 @@ public class User {
         }
     }
 
-    public Task createTask(String nametask){
-        if(!isTaskRepetitive(nametask)){
-        Scanner m = new Scanner(System.in);
-        System.out.println("Enter Start time :");
-        double start = Double.parseDouble(m.next());
-        System.out.println("Enter Finish time :");
-        double finish = Double.parseDouble(m.next());
-        Task task1 = new Task (nametask , this  );
-        Tasks[User.counter] = task1 ;
-            User.counter ++ ;
-        return task1;
+    public ToDo createToDo(String nametask){
+        if(!isToDoRepetitive(nametask)){
+        ToDo toDo = new ToDo();
+        tasks[taskCount] = toDo ;
+            taskCount ++ ;
+        return toDo;
     }
      else return  null ;
     }
 
-    public boolean isTaskRepetitive(String name){
-          for (int i = 0 ; i != User.counter ; i++){
-              if (name ==  Tasks[User.counter].name) return true ;
+    public boolean isToDoRepetitive(String name){
+          for (int i = 0 ; i != tasks.length ; i++){
+              if (name.equals(tasks[i].name)) return true ;
           }
     return false ;
     }
 
-    public Task getTaskByName(String Taskname){
-        for (int i = 0 ; i != User.counter ; i++){
-            if (Taskname ==  Tasks[User.counter].name) return Tasks[User.counter];
+    public ToDo getTaskByName(String Taskname){
+        for (int i = 0 ; i != tasks.length ; i++){
+            if (Taskname.equals(tasks[i].name)) return tasks[i];
         }
-        System.out.println("not Foung");
+        System.out.println("not Found");
     return null;
     }
-    public Task[] getTaskByColor(String Color){
-        Task[] Temp  = new Task[100];
+    public ToDo[] getToDosByColor(String Color){
+        ToDo[] Temp  = new ToDo[100];
         int tempConuter = 0 ;
-        for (int i = 0 ; i != User.counter ; i++){
-            if (Color ==  Tasks[User.counter].getColor()) {
-              Temp[tempConuter]=  Tasks[User.counter];
+        for (int i = 0 ; i != tasks.length; i++){
+            if (Color.equals(tasks[i].getColor())){
+              Temp[tempConuter]=tasks[i];
               tempConuter++;
             }
         }
@@ -84,7 +81,7 @@ public class User {
         return password;
     }
     public void setUsername(String setUsername){
-        if ( setUsername == "nigga") {
+        if ( setUsername.equals("nigga")) {
             System.out.println("don't be Racist");
             System.out.println("Choose Something else");
         }
@@ -100,5 +97,14 @@ public class User {
     public String setLastName(String lastName) {
         return (lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase());
     }
+
+
+    public String getFirst_name(){
+        return  first_name;
+
     }
+    public String getLast_name(){
+        return  last_name;
+    }
+}
 
