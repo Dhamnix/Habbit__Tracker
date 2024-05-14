@@ -84,11 +84,7 @@ public class User {
         return password;
     }
     public void setUsername(String setUsername){
-        if ( setUsername.equals("nigga")) {
-            System.out.println("don't be Racist");
-            System.out.println("Choose Something else");
-        }
-      else  username = setUsername;
+        username = setUsername;
     }
     public void setPassword(String setPassword){
       if ( Utils.isPasswordValid(setPassword)) {password = setPassword;}
@@ -103,7 +99,9 @@ public class User {
 
 
     public String getFirst_name(){
-        return  first_name;
+        if (first_name == null) return "no Name" ;
+        else  return first_name;
+
 
     }
     public String getLast_name(){

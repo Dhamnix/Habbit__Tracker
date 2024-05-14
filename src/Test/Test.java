@@ -11,7 +11,7 @@ public class Test {
         Habit t3 = new Habit();
         t1.setColor("red");
         t2.setColor("green");
-        t3.setFinishTime();
+      //  t3.setFinishTime();
         System.out.println(t1.getInfo());
         System.out.println(t2.getInfo());
         Application app = new Application();

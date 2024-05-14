@@ -14,7 +14,7 @@ public class ToDo {
     public String getInfo(){
         return "name :" + name + (start_time);
     }
-    protected void setColor(String c){
+    public void setColor(String c){
         if(isColorValid(c)){this.color = c ;}
     }
     public static boolean isColorValid(String color){
